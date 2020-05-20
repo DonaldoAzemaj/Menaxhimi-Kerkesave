@@ -4,7 +4,7 @@
 
 <h5>Some screenshots how it looks like.</h5>
 
-
+![alt text](https://github.com/donaldoazemaj/Menaxhimi-Kerkesave/blob/master/kerkesatscreen.png?raw=true)
 
 <hr>
 
