@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MenaxhimiKerkesaveDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kerkesat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="Titulli" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pershkrimi" Type="nvarchar(max)" />
+          <Property Name="DataKerkeses" Type="datetime" Nullable="false" />
+          <Property Name="DataRegjistrimit" Type="datetime" Nullable="false" />
+          <Property Name="DataPerfundimit" Type="datetime" />
+          <Property Name="DokumentPath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Statuset">
+          <Key>
+            <PropertyRef Name="Id_" />
+          </Key>
+          <Property Name="Id_" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emri" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pershkrimi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Kerkesat__IdStatus">
+          <End Role="Statuset" Type="Self.Statuset" Multiplicity="1" />
+          <End Role="Kerkesat" Type="Self.Kerkesat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuset">
+              <PropertyRef Name="Id_" />
+            </Principal>
+            <Dependent Role="Kerkesat">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MenaxhimiKerkesaveDBStoreContainer">
+          <EntitySet Name="Kerkesat" EntityType="Self.Kerkesat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuset" EntityType="Self.Statuset" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Kerkesat__IdStatus" Association="Self.FK__Kerkesat__IdStatus">
+            <End Role="Statuset" EntitySet="Statuset" />
+            <End Role="Kerkesat" EntitySet="Kerkesat" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MenaxhimiKerkesaveDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kerkesat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="Titulli" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataKerkeses" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataRegjistrimit" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataPerfundimit" Type="DateTime" Precision="3" />
+          <Property Name="DokumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Statuset" Relationship="Self.FK__Kerkesat__IdStatus" FromRole="Kerkesat" ToRole="Statuset" />
+        </EntityType>
+        <EntityType Name="Statuset">
+          <Key>
+            <PropertyRef Name="Id_" />
+          </Key>
+          <Property Name="Id_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kerkesat" Relationship="Self.FK__Kerkesat__IdStatus" FromRole="Statuset" ToRole="Kerkesat" />
+        </EntityType>
+        <Association Name="FK__Kerkesat__IdStatus">
+          <End Role="Statuset" Type="Self.Statuset" Multiplicity="1" />
+          <End Role="Kerkesat" Type="Self.Kerkesat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuset">
+              <PropertyRef Name="Id_" />
+            </Principal>
+            <Dependent Role="Kerkesat">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MenaxhimiKerkesaveEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kerkesat" EntityType="Self.Kerkesat" />
+          <EntitySet Name="Statuset" EntityType="Self.Statuset" />
+          <AssociationSet Name="FK__Kerkesat__IdStatus" Association="Self.FK__Kerkesat__IdStatus">
+            <End Role="Statuset" EntitySet="Statuset" />
+            <End Role="Kerkesat" EntitySet="Kerkesat" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MenaxhimiKerkesaveDBStoreContainer" CdmEntityContainer="MenaxhimiKerkesaveEntities">
+          <EntitySetMapping Name="Kerkesat">
+            <EntityTypeMapping TypeName="MenaxhimiKerkesaveDB.Kerkesat">
+              <MappingFragment StoreEntitySet="Kerkesat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Titulli" ColumnName="Titulli" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+                <ScalarProperty Name="DataKerkeses" ColumnName="DataKerkeses" />
+                <ScalarProperty Name="DataRegjistrimit" ColumnName="DataRegjistrimit" />
+                <ScalarProperty Name="DataPerfundimit" ColumnName="DataPerfundimit" />
+                <ScalarProperty Name="DokumentPath" ColumnName="DokumentPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuset">
+            <EntityTypeMapping TypeName="MenaxhimiKerkesaveDB.Statuset">
+              <MappingFragment StoreEntitySet="Statuset">
+                <ScalarProperty Name="Id_" ColumnName="Id_" />
+                <ScalarProperty Name="Emri" ColumnName="Emri" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

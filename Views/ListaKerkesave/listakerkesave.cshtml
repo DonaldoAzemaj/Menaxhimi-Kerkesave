@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Lista e Kerkesave";
+
+
+}
+
+
+
+
+<div class="container">
+
+
+    <div class="form-group">
+        <button type="button" class="btn btn-outline-primary  btn-lg float-right mb-4"
+                onclick="@("window.location.href='" + @Url.Action("", "MenaxhimiKerkesave") + "'");">
+            Shto Kerkes +
+        </button>
+    </div>
+
+
+    <table class="table table-hover border" id="listaKerkesave">
+
+        <thead>
+            <tr class="table-primary">
+                <td colspan="9">
+                    <!-- Search form -->
+                    <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan-2">
+                        <input class="form-control  mr-3 w-75" type="text" placeholder="Search..."
+                               aria-label="Search" id="search-bar">
+                    </form>
+                </td>
+            </tr>
+
+
+
+
+            <tr class="table-primary">
+                <th scope="row">Kerkesat</th>
+                <td>Titulli</td>
+                <td>Data e Kerkeses</td>
+                <td>Data e Regjistrimit</td>
+                <td>Statusi</td>
+                <td>Shkarko</td>
+                <td>Modifiko</td>
+                <td>Fshij</td>
+            </tr>
+        </thead>
+
+        <tbody>
+        </tbody>
+
+    </table>
+
+
+    <div class="previeusNext">
+        <div class="d-flex justify-content-center">
+            <button type="button" id="show_more" onclick="merrListMeKerkesa()" numriFaqes-value="1" class="btn btn-primary btn-lg nextBtn">Show More</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@Scripts.Render("~/bundles/listakerkesave")

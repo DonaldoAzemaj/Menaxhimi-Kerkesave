@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="https://www.shareicon.net/data/256x256/2015/10/03/111424_clock_512x512.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body >
+    
+    @Html.Partial("_NavBar")
+    <div class="container body-content ">
+        @RenderBody()
+
+        <!-- Footer -->
+
+        <footer class="fixed-bottom footer border-top">
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3 foot">
+                © 2000 - @DateTime.Now.Year Copyright:
+                <a href="#">Menaxhimi i kerkesave</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+
+
+    </div>
+
+
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>

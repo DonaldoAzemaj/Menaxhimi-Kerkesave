@@ -1,0 +1,96 @@
+﻿
+
+@model SoftSolution.Models.Kerkese
+
+@{
+    ViewBag.Title = "Konfiguro Kerkesen";
+    string[] selected = new string[4];
+
+
+
+
+}
+
+
+
+<div class="container">
+    <div class="center_div">
+
+        <div class="form-group">
+            <h3 class="display- text-success text-center" id="success"></h3>
+            <h3 class="display- text-danger text-center" id="danger"></h3>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="Titulli">Titulli</label>
+            <input class="form-control input" id="Titulli" type="text" value="" placeholder="Vendosni titullin...">
+            <div class="invalid-feedback" id="TitulliMsg">
+                Ju lutem vendosni titullin!
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label " for="Pershkrimi">Pershkrimi</label>
+            <input class="form-control input" id="Pershkrimi" value="" type="text" placeholder="Vendosni pershkrimin…">
+        </div>
+
+
+        <div class="form-group">
+
+            <label class="control-label" for="Statusi">Statusi</label>
+            <div class="form-group">
+                <select class="custom-select input" id="StatusId">
+                    <option value="0">Vendosni statusin</option>
+                    <option value="1">Regjistruar</option>
+                    <option value="2">Në Proces</option>
+                    <option value="3">Perfunduar</option>
+                </select>
+                <div class="invalid-feedback" id="StatusiMsg">Ju lutem zgjidhni statusin!</div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="DataKerkeses">Data Kerkeses</label>
+            <input type="date" class="form-control input" id="DataKerkeses">
+            <div class="invalid-feedback" id="DataKerkesesMsg">Ju lutem vendosni daten!</div>
+        </div>
+
+
+        <div class="form-group ">
+
+            <label class="form-control-label" for="DataPerfundimit">Data Perfundimit Kerkeses</label>
+            <input type="date" class="form-control input" id="DataPerfundimit" disabled="">
+            <div class="invalid-feedback" id="DataPerfundimitMsg">Ju lutem vendosni daten!</div>
+        </div>
+
+        <div class="form-group mb-4 ">
+
+            <label class="form-control-label" for="Dokumenti">Zgjidhni Dokumentin</label>
+
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" accept=".doc, .docx,.pdf" id="Dokumenti">
+                <label id="labelDokument" class="custom-file-label text-muted input" for="Dokumenti">.pdf or .docx</label>
+                <div class="invalid-feedback" id="DokumentiMsg">Ju lutem vendosni daten!</div>
+            </div>
+
+        </div>
+
+
+        <button type="button" class="btn btn-outline-primary  btn-lg"
+                onclick="@("window.location.href='" + @Url.Action("", "listakerkesave") + "'");">
+            Lista e Kerkesave
+        </button>
+        <button type="button" onclick="saveKerkesat()" class="btn btn-outline-primary btn-lg float-right">Ruaj Kerkesen</button>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+@Scripts.Render("~/bundles/menaxhimiKerkesave")

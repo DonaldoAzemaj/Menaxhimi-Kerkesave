@@ -1,0 +1,33 @@
+﻿
+
+.center_div {
+   
+    margin: 0 auto;
+    width: 60% /* value of your choice which suits your alignment */
+}
+
+.container{
+    padding:10px;
+    padding-bottom:50px;
+    
+}
+
+
+.footer {
+    height:50px;
+background-color: white;
+}
+
+#labelDokument {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.previeusNext {
+    margin-top:40px;
+    width:100%;
+
+}
+
+
