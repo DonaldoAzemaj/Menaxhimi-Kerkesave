@@ -9,4 +9,4 @@
 
 <hr>
 
-![alt text](https://github.com/donaldoazemaj/Menaxhimi-Kerkesave/blob/master/kerkesatscreen.png?raw=true)
+![alt text](https://github.com/donaldoazemaj/Menaxhimi-Kerkesave/blob/master/kerkesatscreen1.png?raw=true)
