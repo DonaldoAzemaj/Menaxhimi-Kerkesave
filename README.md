@@ -1,4 +1,4 @@
 <h1>Menaxhimi Kerkesave - ASP.NET Framework</h1>
 
-<p style="color:blue" >CodeTask.pdfdo gjeni informacion per projektin.</p>
+<h6>CodeTask.pdfdo</h6> gjeni informacion per projektin.
 
